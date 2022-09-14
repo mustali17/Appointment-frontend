@@ -109,7 +109,7 @@ const Navbar = () => {
                 onClick={loginWithGoogle}
                 className="btn btn-outline-primary"
               >
-                Login As A Patient
+                Login As A ghuskhor
               </button>
             )}
             {token && (
