@@ -36,15 +36,17 @@ function App() {
 	// To load only when gapi is loaded
 	useEffect(() => {
 		if (window.gapi !== undefined) {
+			console.log("365803515308-boj1rpek38kabo6pm4448b869efoe47q.apps.googleusercontent.com");
 			setApiLoaded(false);
 			window.gapi.load("client:auth2", initClient);
 			function initClient() {
 				window.gapi.client
 					.init({
-						apiKey: process.env.REACT_APP_API_KEY,
-						clientId: process.env.REACT_APP_CLIENT_ID,
-						discoveryDocs: [process.env.REACT_APP_DISCOVERY_DOCS],
-						scope: process.env.REACT_APP_SCOPE,
+						apiKey: 'AIzaSyAJO5wNT_dy2zKYt2Px7ZGvd2tLGyUA6QY',
+						clientId: '481356034792-uu4ksedf4tuabnsobb3k27qle8e5mkm5.apps.googleusercontent.com',
+						discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'],
+						scope: 'https://www.googleapis.com/auth/calendar',
+						plugin_name: "chat"
 					})
 					.then(
 						function () {

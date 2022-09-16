@@ -19,7 +19,7 @@ const DocAppointments = () => {
     var token = localStorage.getItem("token");
     var decoded = jwt_decode(token);
     const { data } = await Axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/doctors/previous-appointments/`,
+      `http://localhost:5000/doctors/previous-appointments/`,
       {
         doctorId: decoded._id,
       }

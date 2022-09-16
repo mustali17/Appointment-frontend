@@ -23,7 +23,7 @@ const Navbar = () => {
         window.localStorage.setItem("googleId", profile.getId());
 
         const serverRes = await axios.post(
-          `${process.env.REACT_APP_SERVER_URL}/patients/google-login/`,
+          `http://localhost:5000/patients/google-login/`,
           {
             tokenId: profile.getAuthResponse().id_token,
           }
@@ -109,7 +109,7 @@ const Navbar = () => {
                 onClick={loginWithGoogle}
                 className="btn btn-outline-primary"
               >
-                Login As A ghuskhor
+                Login
               </button>
             )}
             {token && (

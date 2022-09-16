@@ -27,7 +27,7 @@ const AppointmentStatus = () => {
 
         const fetchAppointments = async () => {
             var { data } = await Axios.post(
-                `${process.env.REACT_APP_SERVER_URL}/patients/upcoming-appointments/`,
+                `http://localhost:5000/patients/upcoming-appointments/`,
                 {
                     googleId: localStorage.getItem("googleId"),
                 }

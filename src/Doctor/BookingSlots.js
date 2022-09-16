@@ -15,7 +15,7 @@ const BookingSlots = (props) => {
   useEffect(() => {
     const fetchDate = async (dateToPost) => {
       const { data } = await Axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/doctors/get-slots/`,
+        `http://localhost:5000/doctors/get-slots/`,
         {
           doctorId: doctor._id,
           date: dateToPost

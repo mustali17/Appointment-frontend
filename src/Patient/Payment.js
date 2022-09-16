@@ -67,7 +67,7 @@ const Payment = (props) => {
       if (event) {
         // console.log(`AddEvent link : ${event.hangoutLink}, Id : ${id}`)
         axios.put(
-          `${process.env.REACT_APP_SERVER_URL}/appointments/add-meet-link`,
+          `http://localhost:5000/appointments/add-meet-link`,
           {
             appointmentId: id,
             meetLink: event.hangoutLink
@@ -83,7 +83,7 @@ const Payment = (props) => {
 
   const bookSlot = async () => {
     const { data } = await Axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/doctors/book-slot/`,
+      `http://localhost:5000/doctors/book-slot/`,
       {
         googleId: localStorage.getItem("googleId"),
         patientName: JSON.parse(localStorage.getItem("user")).name,
@@ -104,7 +104,7 @@ const Payment = (props) => {
 
   const makePayment = async (token) => {
     const { data } = await Axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/patients/payment`,
+      `http://localhost:5000/patients/payment`,
       {
         token,
         finalBalnce,
