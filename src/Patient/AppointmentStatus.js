@@ -61,7 +61,7 @@ const AppointmentStatus = () => {
 
 
     return (
-        <div className="bg-dark" style={{ height: "100vh" }}>
+        <div style={{ height: "100vh" }}>
             <Navbar />
             <div>
                 <div className="row m-5" style={{ maxWidth: "100%" }}>
@@ -75,9 +75,9 @@ const AppointmentStatus = () => {
                     {!isLoading && <div
                         className="col-9 col-md-9 p-4"
                         style={{
-                            border: "15px solid yellow ",
+                            border: "15px",
                             height: "80vh",
-                            backgroundColor: "#6c757d",
+                            backgroundColor: "#92cae8",
                         }}
                     >
                         <table className="table table-hover table-dark">
