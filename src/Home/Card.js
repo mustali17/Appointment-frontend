@@ -21,7 +21,7 @@ const Card = ({ login = "Doctor", Image, link }) => {
         window.localStorage.setItem("googleId", profile.getId());
 
         const serverRes = await axios.post(
-          `${process.env.REACT_APP_SERVER_URL}/patients/google-login/`,
+          `http://localhost:5000/patients/google-login/`,
           {
             tokenId: profile.getAuthResponse().id_token,
           }

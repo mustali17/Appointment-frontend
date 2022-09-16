@@ -10,7 +10,7 @@ const TodaysSchedule = () => {
       var token = localStorage.getItem("token");
       var decoded = jwt_decode(token);
       const { data } = await Axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/doctors/todays-appointments`,
+        `http://localhost:5000/doctors/todays-appointments`,
         {
           doctorId: decoded._id,
         }

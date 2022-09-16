@@ -15,7 +15,7 @@ const PersonalDetails = () => {
     setLoading(true);
     const getPatientDetails = async () => {
       const res = await Axios.get(
-        `${process.env.REACT_APP_SERVER_URL}/patients/getPatientDetails/${googleId}`
+        `http://localhost:5000/patients/getPatientDetails/${googleId}`
       );
       if (res.status === 200) {
         setPatient(res.data);
