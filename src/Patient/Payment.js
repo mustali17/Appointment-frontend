@@ -102,29 +102,23 @@ const Payment = (props) => {
     setFinalBalnce(1.18 * doctor.feesPerSession);
   }, []);
 
-  const makePayment = async (token) => {
-    const { data } = await Axios.post(
-      `http://localhost:5000/patients/payment`,
-      {
-        token,
-        finalBalnce,
-      }
-    );
+  const handleClick = async (token) => {
+    
 
-    if (data) {
+    
       bookSlot();
       setFinalBalnce(0);
       toast("Appointment booked successfully", {
         type: "success"
       })
       history.push("/patient");
-    }
+    
 
-    console.log(data);
+    
   };
 
   return (
-    <div className="bg-dark" style={{ height: "100vh" }}>
+    <div style={{ height: "100vh" }}>
       <Navbar />
       <div>
         <div className="row m-5" style={{ maxWidth: "100%" }}>
@@ -137,9 +131,9 @@ const Payment = (props) => {
           <div
             className="col-9 col-md-9 p-4 "
             style={{
-              border: "15px solid yellow ",
+              border: "15px",
               height: "80vh",
-              backgroundColor: "#6c757d",
+              backgroundColor: "#92cae8",
             }}
           >
             <div className="container text-white">
@@ -232,22 +226,16 @@ const Payment = (props) => {
                         </tr>
                       </tbody>
                     </table>
-                    <StripeCheckoutButton
-                      stripeKey="pk_test_51IabQNSCj4BydkZ3VIEbtfIJoWfSESvGSia3mSOfCYPWiyGxNxyr42IRvpmi8f8WbnhzCYBIZMyshg540TErXG3500fbHzRzLc"
-                      token={makePayment}
-                      amount={finalBalnce * 100}
-                      name="Place Appointment"
-                      shippingAddress
-                      billingAddress
-                    >
+                    
                       <button
                         type="button"
                         className="btn btn-success btn-lg btn-block"
+                        onClick={handleClick}
                       >
                         Pay Now&nbsp;&nbsp;&nbsp;
                         <span className="glyphicon glyphicon-chevron-right" />
                       </button>
-                    </StripeCheckoutButton>
+                    
                   </div>
                 </div>
               </div>

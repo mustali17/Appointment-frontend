@@ -7,9 +7,9 @@ const Option =({Value="info",})=>{
         <button type="button" 
 
         
-        className="btn btn-secondary p-2 m-1 w-75 h-100"> 
+        className="btn btn-outline-info p-2 m-1 w-75 h-100"> 
       
-            <h5 className="text-white">{Value}</h5>
+            <h5 >{Value}</h5>
         
        </button>
     )

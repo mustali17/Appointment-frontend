@@ -14,7 +14,7 @@ const LeftsidePatient = () => {
         </li>
         <li>
           <Link to="/patient/searchdoctor">
-            <Option Value="Search Doctor" />
+            <Option Value="Search Officer" />
           </Link>
         </li>
         <li>

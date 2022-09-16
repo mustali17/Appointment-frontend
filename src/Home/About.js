@@ -15,7 +15,7 @@ const About = () => {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title">Hospital Appointment Booking System</h5>
+            <h5 className="card-title">GMC Appointment Booking System</h5>
             <p className="card-text">
               One of main issue with current pandemic situation is that the
               hospitals are bit busy dealing with covid patients and other

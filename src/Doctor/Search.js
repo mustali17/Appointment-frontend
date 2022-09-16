@@ -97,7 +97,7 @@ const Search = () => {
             <Input
               value={text}
               type="text"
-              placeholder="Search Your Doctor"
+              placeholder="Search Your Officer"
               onChange={onTextChanged}
               className="mb-1"
             />
@@ -108,7 +108,7 @@ const Search = () => {
                   color="primary"
                   onClick={() => UpdateDisplay(text)}
                 >
-                  Search Doctor
+                  Search
                 </Button>
               </InputGroupAddon>
             </div>
@@ -131,11 +131,11 @@ const Search = () => {
                 <div className="card-body">
                   <div className="text-info">
                     <h6>
-                      Doctor Name:
+                      Officer Name:
                       <span className="text-uppercase"> {doc.name}</span>
                     </h6>
                   </div>
-                  <div>Specialization : {doc.specialization}</div>
+                  <div>Department : {doc.specialization}</div>
                   <div>Phone Number : {doc.phoneNumber}</div>
                   <div className="row mb-0 pb-0">
                     <div className="col-md-6 ">

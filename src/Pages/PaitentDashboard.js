@@ -30,7 +30,7 @@ const PersonalDetails = () => {
   }, [googleId]);
 
   return (
-    <div className="bg-dark" style={{ height: "100vh" }}>
+    <div style={{ height: "100vh" }}>
       <Navbar />
       {loading ? (
         <div className="row justify-content-center position-relative">
@@ -52,9 +52,9 @@ const PersonalDetails = () => {
             <div
               className="col-9 col-md-9 p-4"
               style={{
-                border: "15px solid yellow ",
+                border: "15px",
                 height: "80vh",
-                backgroundColor: "#6c757d",
+                backgroundColor: "#92cae8",
               }}
             >
               <div className="row ">
