@@ -14,6 +14,7 @@ import Error from "./Pages/Error";
 import { AuthContext } from "./Auth/AuthContext";
 import PhoneNumber from "./components/PhoneNumber";
 import PersonalDetails from "./Doctor/PersonalDetails";
+import AddDoc from "./Doctor/AddDoc";
 import SearchDoctor from "./Patient/SearchDoctor";
 import PerviousAppointments from "./Patient/PerviousAppointments";
 import Spinner from "react-bootstrap/Spinner";
@@ -107,6 +108,7 @@ function App() {
 					<Route exact path="/patient/payment" component={Payment} />
 					<Route exact path="/patient/appointment-status" component={AppointmentStatus} />
 					<Route exact path="/patient/feedback/:id" component={Pfeedback} />
+					<Route exact path="/doctor/addDoc" component={AddDoc} />
 
 					<Route path="*">
 						<Error />
