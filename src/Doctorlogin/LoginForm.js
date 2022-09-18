@@ -47,7 +47,7 @@ const LoginForm = () => {
 				<Col lg={6} className='offset-lg-3 mt-5 '>
 					<Card>
 						<Form>
-							<CardHeader className=''>Welcome back, Doc</CardHeader>
+							<CardHeader className=''>Welcome back, Officer</CardHeader>
 							<CardBody >
 								<FormGroup row>
 									<Label for='email' sm={3}>

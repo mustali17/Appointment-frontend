@@ -142,13 +142,15 @@ const Payment = (props) => {
                   <div className="row">
                     <div className="col-xs-6 col-sm-6 col-md-6">
                       <address>
-                        <strong>Elf Cafe</strong>
+                        <strong>Gandhinagar Mahanagar Seva Sadan</strong>
                         <br />
-                        2135 Sunset Blvd
+                        1st Floor,M.S Building
                         <br />
-                        Los Angeles, CA 90026
+                        Nr.District Court
                         <br />
-                        <abbr title="Phone">P:</abbr> (213) 484-6829
+                        Sector-11,Gandhinagar-382011
+                        <br />
+                        <abbr title="Phone">P:</abbr> (079) 23220440
                       </address>
                     </div>
                     <div className="col-xs-6 col-sm-6 col-md-6 text-right">
@@ -162,15 +164,14 @@ const Payment = (props) => {
                   </div>
                   <div className="row">
                     <div className="text-center">
-                      <h1>Receipt</h1>
+                      <h1>Confirm Booking</h1>
                     </div>
                     <table className="table table-hover text-white">
                       <thead>
                         <tr>
-                          <th>Doctor Name</th>
-                          <th>Specialization</th>
+                          <th>Officer Name</th>
+                          <th>Department</th>
 
-                          <th className="text-center">Total</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -185,45 +186,10 @@ const Payment = (props) => {
                             {doctor.specialization}
                           </td>
 
-                          <td className="col-md-1 text-center">
-                            {doctor.feesPerSession}
-                          </td>
+                          
                         </tr>
 
-                        <tr>
-                          <td> &nbsp; </td>
-
-                          <td className="text-right">
-                            <p>
-                              <strong>Subtotal:&nbsp;</strong>
-                            </p>
-                            <p>
-                              <strong>Tax:&nbsp;</strong>
-                            </p>
-                          </td>
-                          <td className="text-center">
-                            <p>
-                              <strong>{doctor.feesPerSession}</strong>
-                            </p>
-                            <p>
-                              <strong>{0.18 * doctor.feesPerSession}</strong>
-                            </p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td> &nbsp; </td>
-
-                          <td className="text-right">
-                            <h4>
-                              <strong>Total:&nbsp;</strong>
-                            </h4>
-                          </td>
-                          <td className="text-center text-danger">
-                            <h4>
-                              <strong>{finalBalnce}</strong>
-                            </h4>
-                          </td>
-                        </tr>
+                        
                       </tbody>
                     </table>
                     
@@ -232,7 +198,7 @@ const Payment = (props) => {
                         className="btn btn-success btn-lg btn-block"
                         onClick={handleClick}
                       >
-                        Pay Now&nbsp;&nbsp;&nbsp;
+                        Book Now&nbsp;&nbsp;&nbsp;
                         <span className="glyphicon glyphicon-chevron-right" />
                       </button>
                     

@@ -14,7 +14,6 @@ const AddDoc = () => {
 		name:"",
 		phoneNumber:"",
 		specialization:"",
-		feesPerSession:"",
     })
     function updateForm(value){
         return setForm((prev)=>{
@@ -38,7 +37,7 @@ const AddDoc = () => {
             )
             // console.log(res);
             if (res.status === 200) {
-                history.push('/patient')
+                history.push('/doctorlogin')
             }
             else {
                 console.log(res.message)
@@ -57,12 +56,7 @@ const AddDoc = () => {
           <Navbar />
           <div>
             <div className="row m-5" style={{ maxWidth: "100%" }}>
-              <div
-                className="col-3 col-md-3 p-4 bg-white "
-                style={{ height: "80vh" }}
-              >
-                
-              </div>
+              
               <div
                 className="col-9 col-md-9 p-4"
                 style={{
@@ -148,7 +142,7 @@ const AddDoc = () => {
                     </Row>
                     <Row>
                         <Col >
-                        <Label for='specialization' ><h5>Specialization</h5> </Label>  
+                        <Label for='specialization' ><h5>Department</h5> </Label>  
                         </Col>
                         <Col  >
                         <Input 
@@ -164,24 +158,7 @@ const AddDoc = () => {
                         </Col>
                         
                     </Row>
-                    <Row>
-                        <Col >
-                        <Label for='fee' ><h5>Fee</h5> </Label>  
-                        </Col>
-                        <Col  >
-                        <Input 
-                        
-                            type='text'
-                            name='feesPerSession'
-                            id='feesPerSession'
-                            placeholder='provide your feesPerSession'
-                            value={form.feesPerSession}
-                            onChange={(e)=> updateForm({feesPerSession:e.target.value})}
-                            
-                        />
-                        </Col>
-                        
-                    </Row>
+                    
                        
                 
 
