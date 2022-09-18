@@ -137,10 +137,9 @@ const Search = () => {
                   </div>
                   <div>Department : {doc.specialization}</div>
                   <div>Phone Number : {doc.phoneNumber}</div>
+                  <br/>
                   <div className="row mb-0 pb-0">
-                    <div className="col-md-6 ">
-                      FeesPerSession: {doc.feesPerSession}
-                    </div>
+                    
                     <div
                       className=" col align-self-end col-md-2 offset-md-3 inline"
                       style={{ textAlign: "center" }}

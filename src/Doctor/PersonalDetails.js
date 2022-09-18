@@ -11,7 +11,7 @@ const PersonalDetails = () => {
   const doctor = useMemo(() => jwt_decode(token), [token]);
 
   return (
-    <div className="bg-dark" style={{ height: "100vh" }}>
+    <div style={{ height: "100vh" }}>
       <Navbar />
       <div>
         <div className="row m-5" style={{ maxWidth: "100%" }}>
@@ -24,9 +24,9 @@ const PersonalDetails = () => {
           <div
             className="col-9 col-md-9 p-4"
             style={{
-              border: "15px solid yellow ",
+              border: "15px",
               height: "80vh",
-              backgroundColor: "#6c757d",
+              backgroundColor: "#92cae8",
             }}
           >
             <div className="card mb-4">
@@ -40,7 +40,7 @@ const PersonalDetails = () => {
                 </li>
                 <li className="list-group-item">
                   <span className="badge badge-info mr-2 p-2 text-uppercase">
-                    Specialization:
+                    Department:
                   </span>
                   <span className="text-capitalize">
                     {doctor.specialization}
@@ -52,12 +52,7 @@ const PersonalDetails = () => {
                   </span>
                   {doctor.phoneNumber}
                 </li>
-                <li className="list-group-item">
-                  <span className="badge badge-info mr-2 p-2 text-uppercase">
-                    Fees Per Session:
-                  </span>
-                  {doctor.feesPerSession}
-                </li>
+                
               </ul>
             </div>
           </div>
