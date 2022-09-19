@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "./Card";
 
-import doctorlogin from "../image/doctorlogin.png";
-import patientlogin from "../image/patientlogin.png";
+import doctorlogin from "../image/4565.jpg";
+import patientlogin from "../image/8741.jpg";
 
 const LoginButton = () => {
   return (

@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, /*NavLink,*/ useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../image/navbaricon1.png";
 import { AuthContext } from "../Auth/AuthContext";
 import axios from "axios";
+// import { Nav } from "react-bootstrap";
+import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from "./NavbarElements";
 // import GoogleLogin from "react-google-login";
 // import axios from "axios";
+import Image from "../image/7566.jpg";
+
 
 const Navbar = () => {
   const { token, setToken, setGoogleId } = useContext(AuthContext);
@@ -76,38 +80,44 @@ const Navbar = () => {
       history.push("/");
     }
   }
-
-  return (
-    <nav
-      className="navbar navbar-dark bg-dark navbar-expand-lg pl-4 pr-4 w-100 "
-      style={{ backgroundColor: " #1a1a1a" }}
-    >
-      <Link to="/" className="navbar-brand">
-        <img
+  return(
+    <>
+    <Nav>
+     {/* <a className="navbar-brand" href="#">
+    <img src={Image} width="30" height="30" className="d-inline-block align-top" style={{marginRight:"15px"}} alt=""/>
+    <span style={{color:"white"}}>Gandhinagar Muncipal Corporation</span>
+  </a>  */}
+      <NavLink to='/'>
+      <img
           src={logo}
           alt=""
-          width="30"
-          height="24"
+          width="50"
+          height="50"
           className="d-inline-block align-top mr-2 mt-1"
         ></img>
-        Gandhinagar Muncipal Corporation 
-      </Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#collapsibleNavbar"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse " id="collapsibleNavbar">
-        <ul className="navbar-nav ml-auto text-light bg-dark">
-          <li className="navbar-item" style={{ textAlign: "right" }}>
-            <link to="/" className="nav-link " style={{ padding: 0 }} />
-            {!token && (
-              <button
+      {/* <img src={logo}  width="60" height="50" alt="logo" /> */}
+      Gandhinagar Muncipal Corporation
+      </NavLink>
+     <Bars />
+     <NavMenu>
+      <NavLink to='/about' activeStyle>
+        About
+        </NavLink>
+        <NavLink to='/services' activeStyle>
+        Services
+        </NavLink>
+        <NavLink to='/contact-us' activeStyle>
+        Contact Us
+        </NavLink>
+        <NavLink to='/sign-up' activeStyle>
+        about
+        </NavLink>
+      </NavMenu> 
+      <NavBtn>
+         {!token && (
+        <button
                 onClick={loginWithGoogle}
-                className="btn btn-outline-primary"
+                className="btn btn-primary"
               >
                 Login
               </button>
@@ -115,17 +125,68 @@ const Navbar = () => {
             {token && (
               <button
                 type="button"
-                className="btn btn-outline-primary"
+                className="btn btn-primary"
                 onClick={signOutGoogle}
               >
                 Logout
               </button>
             )}
-          </li>
-        </ul>
-      </div>
-    </nav>
+       
+      </NavBtn>
+    </Nav>
+    </>
   );
+
+
+  // return (
+  //   <nav
+  //     className="navbar navbar-dark bg-dark navbar-expand-lg pl-4 pr-4 w-100 "
+  //     style={{ backgroundColor: " #1a1a1a" }}
+  //   >
+  //     <Link to="/" className="navbar-brand">
+  //       <img
+  //         src={logo}
+  //         alt=""
+  //         width="30"
+  //         height="24"
+  //         className="d-inline-block align-top mr-2 mt-1"
+  //       ></img>
+  //       Gandhinagar Muncipal Corporation 
+  //     </Link>
+  //     <button
+  //       className="navbar-toggler"
+  //       type="button"
+  //       data-toggle="collapse"
+  //       data-target="#collapsibleNavbar"
+  //     >
+  //       <span className="navbar-toggler-icon"></span>
+  //     </button>
+  //     <div className="collapse navbar-collapse " id="collapsibleNavbar">
+  //       <ul className="navbar-nav ml-auto text-light bg-dark">
+  //         <li className="navbar-item" style={{ textAlign: "right" }}>
+  //           <link to="/" className="nav-link " style={{ padding: 0 }} />
+  //           {!token && (
+  //             <button
+  //               onClick={loginWithGoogle}
+  //               className="btn btn-outline-primary"
+  //             >
+  //               Login
+  //             </button>
+  //           )}
+  //           {token && (
+  //             <button
+  //               type="button"
+  //               className="btn btn-outline-primary"
+  //               onClick={signOutGoogle}
+  //             >
+  //               Logout
+  //             </button>
+  //           )}
+  //         </li>
+  //       </ul>
+  //     </div>
+  //   </nav>
+  // );
 }
 
 export default Navbar;

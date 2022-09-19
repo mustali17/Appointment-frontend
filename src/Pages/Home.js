@@ -1,13 +1,15 @@
 import React from "react";
+import { Router } from "react-router-dom";
 import Footer from "../Basic/Footer";
 import Navbar from "../Basic/Navbar";
 import About from "../Home/About";
 import Jumbo from "../Home/Jumbo";
 import LoginButton from "../Home/LoginButton";
 
+
 const Home = () => {
   return (
-    <div>
+    <div> 
       <Navbar />
       <Jumbo />
       <About />
