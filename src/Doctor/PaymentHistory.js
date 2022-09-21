@@ -61,7 +61,7 @@ const DocAppointments = () => {
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
-                    <th scope="col">Patient Name</th>
+                    <th scope="col">Citizen Name</th>
 					<th scope="col" style={{textAlign:'center'}}>Feedback</th>
                   </tr>
                 </thead>

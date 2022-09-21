@@ -29,7 +29,7 @@ const TodaysSchedule = () => {
         <tr>
           <th scope="col">Date</th>
           <th scope="col">Time</th>
-          <th scope="col">Patient Name</th>
+          <th scope="col">Citizen Name</th>
           <th scope="col">Meet Link</th>
         </tr>
       </thead>
