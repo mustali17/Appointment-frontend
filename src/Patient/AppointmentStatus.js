@@ -85,7 +85,7 @@ const AppointmentStatus = () => {
                                 <tr>
                                     <th scope="col">Date</th>
                                     <th scope="col">Time</th>
-                                    <th scope="col">Doctor Name</th>
+                                    <th scope="col">Officer Name</th>
                                     <th scope="col">Meet Link</th>
                                 </tr>
                             </thead>
