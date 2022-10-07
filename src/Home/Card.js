@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from '../Auth/AuthContext';
 import axios from 'axios';
 
-const Card = ({ login = "Doctor", Image, link }) => {
+const Card = ({ login = "officer", Image, link }) => {
   const { token, googleId, setToken, setGoogleId } = useContext(AuthContext);
   const history = useHistory();
 
@@ -21,7 +21,7 @@ const Card = ({ login = "Doctor", Image, link }) => {
         window.localStorage.setItem("googleId", profile.getId());
 
         const serverRes = await axios.post(
-          `http://localhost:5000/patients/google-login/`,
+          `http://localhost:5000/citizens/google-login/`,
           {
             tokenId: profile.getAuthResponse().id_token,
           }
@@ -34,9 +34,9 @@ const Card = ({ login = "Doctor", Image, link }) => {
           setGoogleId(profile.getId());
 
           if (serverRes.data.phoneNumberExists === true) {
-            history.push("/patient");
+            history.push("/citizen");
           } else {
-            history.push("/patient/update-phone");
+            history.push("/citizen/update-phone");
           }
         }
         else {
@@ -53,10 +53,10 @@ const Card = ({ login = "Doctor", Image, link }) => {
     <div className="card mb-3" style={{ width: "18rem" }}>
       <img src={Image} className="card-img-top" alt="..." height="240" />
       <div className="card-body">
-        {((!token || googleId) && login === "Doctor") && <Link to={link} className="btn btn-primary justify-content-center w-100">Login As A Officer</Link>}
-        {((token && !googleId) && login === "Doctor") && <Link to={link} className="btn btn-primary justify-content-center w-100">My Dashboard</Link>}
-        {((!googleId && login === "Patient") && <Button onClick={loginWithGoogle} disabled={false} className="btn btn-primary justify-content-center w-100">Login As A Citizen</Button>)}
-        {((token && googleId) && login === "Patient") && <Link to={link} className="btn btn-primary justify-content-center w-100">My Dashboard</Link>}
+        {((!token || googleId) && login === "officer") && <Link to={link} className="btn btn-primary justify-content-center w-100">Login As A Officer</Link>}
+        {((token && !googleId) && login === "officer") && <Link to={link} className="btn btn-primary justify-content-center w-100">My Dashboard</Link>}
+        {((!googleId && login === "citizen") && <Button onClick={loginWithGoogle} disabled={false} className="btn btn-primary justify-content-center w-100">Login As A Citizen</Button>)}
+        {((token && googleId) && login === "citizen") && <Link to={link} className="btn btn-primary justify-content-center w-100">My Dashboard</Link>}
       </div>
     </div>
   )

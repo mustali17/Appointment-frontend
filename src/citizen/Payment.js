@@ -3,7 +3,7 @@ import Axios from "axios";
 import { useHistory } from "react-router-dom";
 
 import Navbar from "../Basic/Navbar";
-import Leftside from "../Dashbaord/LeftsidePatient";
+import Leftside from "../Dashbaord/Leftsidecitizen";
 import StripeCheckoutButton from "react-stripe-checkout";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -22,12 +22,12 @@ const Payment = (props) => {
   const [finalBalnce, setFinalBalnce] = useState(0);
   const history = useHistory();
 
-  function createEvent(id, dateTime, doctorEmail) {
+  function createEvent(id, dateTime, officerEmail) {
     var virtualEvent = {
       id: id,
       summary: "Appointment",
       location: "Virtual",
-      description: "Doctor-Patient appointment",
+      description: "officer - citizen appointment",
       start: {
         dateTime: dateTime,
         timeZone: "Asia/Kolkata",
@@ -41,7 +41,7 @@ const Payment = (props) => {
           requestId: "7qxalsvy0e",
         },
       },
-      attendees: [{ email: doctorEmail }],
+      attendees: [{ email: officerEmail }],
       guestsCanModify: true,
       reminders: {
         useDefault: false,
@@ -79,27 +79,27 @@ const Payment = (props) => {
     });
   }
 
-  const { dateId, doctor, slotId } = props.location.data;
+  const { dateId, officer, slotId } = props.location.data;
 
   const bookSlot = async () => {
     const { data } = await Axios.post(
-      `http://localhost:5000/doctors/book-slot/`,
+      `http://localhost:5000/officers/book-slot/`,
       {
         googleId: localStorage.getItem("googleId"),
-        patientName: JSON.parse(localStorage.getItem("user")).name,
+        citizenName: JSON.parse(localStorage.getItem("user")).name,
         slotId: slotId,
         dateId: dateId,
-        doctorId: doctor._id,
+        officerId: officer._id,
       }
     );
 
-    if (data.doctorEmail) {
-      createEvent(data._id, data.date + "T" + data.slotTime, data.doctorEmail);
+    if (data.officerEmail) {
+      createEvent(data._id, data.date + "T" + data.slotTime, data.officerEmail);
     }
   };
 
   useEffect(() => {
-    setFinalBalnce(1.18 * doctor.feesPerSession);
+    setFinalBalnce(1.18 * officer.feesPerSession);
   }, []);
 
   const handleClick = async (token) => {
@@ -111,7 +111,7 @@ const Payment = (props) => {
       toast("Appointment booked successfully", {
         type: "success"
       })
-      history.push("/patient");
+      history.push("/citizen");
     
 
     
@@ -177,13 +177,13 @@ const Payment = (props) => {
                       <tbody>
                         <tr>
                           <td className="col-md-9">
-                            <em>{doctor.name}</em>
+                            <em>{officer.name}</em>
                           </td>
                           <td
                             className="col-md-1"
                             style={{ textAlign: "center" }}
                           >
-                            {doctor.specialization}
+                            {officer.specialization}
                           </td>
 
                           

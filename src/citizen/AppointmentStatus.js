@@ -4,7 +4,7 @@ import Axios from "axios";
 import jwt_decode from "jwt-decode";
 import Navbar from "../Basic/Navbar";
 import "../Dashbaord/dashboard.css";
-import Leftside from "../Dashbaord/LeftsidePatient";
+import Leftside from "../Dashbaord/Leftsidecitizen";
 
 const AppointmentStatus = () => {
     const [appointments, setAppointments] = useState([]);
@@ -27,7 +27,7 @@ const AppointmentStatus = () => {
 
         const fetchAppointments = async () => {
             var { data } = await Axios.post(
-                `http://localhost:5000/patients/upcoming-appointments/`,
+                `http://localhost:5000/citizens/upcoming-appointments/`,
                 {
                     googleId: localStorage.getItem("googleId"),
                 }
@@ -85,7 +85,7 @@ const AppointmentStatus = () => {
                                 <tr>
                                     <th scope="col">Date</th>
                                     <th scope="col">Time</th>
-                                    <th scope="col">Doctor Name</th>
+                                    <th scope="col">Officer Name</th>
                                     <th scope="col">Meet Link</th>
                                 </tr>
                             </thead>
@@ -94,7 +94,7 @@ const AppointmentStatus = () => {
                                     <tr key={Appointment._id}>
                                         <th scope="row">{Appointment.date}</th>
                                         <th scope="row">{Appointment.slotTime}</th>
-                                        <th scope="row">{Appointment.doctorName}</th>
+                                        <th scope="row">{Appointment.officerName}</th>
                                         <th scope="row"> <a href={Appointment.googleMeetLink} target="_blank">Join Meet</a></th>
                                     </tr>
                                 ))}

@@ -14,7 +14,7 @@ const LoginForm = () => {
 	async function login() {
 		try {
 			const res = await axios.post(
-				`http://localhost:5000/doctors/login/`,
+				`http://localhost:5000/officers/login/`,
 				{
 					username: username,
 					password: password
@@ -31,7 +31,7 @@ const LoginForm = () => {
 				window.localStorage.removeItem("googleId");
 				setGoogleId(null);
 				setToken(token);
-				history.push('/doctor');
+				history.push('/officer');
 			}
 		} catch (err) {
 			console.log(err);
@@ -39,7 +39,7 @@ const LoginForm = () => {
 	}
 
 	if (token && !googleId) {
-		return <Redirect to="/doctor" />
+		return <Redirect to="/officer" />
 	}
 	return (
 		<Container className='text-center'>

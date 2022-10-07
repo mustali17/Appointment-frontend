@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../Basic/Navbar";
-import Leftside from "../Dashbaord/LeftsideDoctor";
-import TodaysSchedule from "../Doctor/TodaysSchedule";
+import Leftside from "../Dashbaord/Leftsideofficer";
+import TodaysSchedule from "../officer/TodaysSchedule";
 import "../Dashbaord/dashboard.css";
 
-const DoctorDashboard = () => {
+const officerDashboard = () => {
   return (
     <div style={{ height: "100vh" }}>
       <Navbar />
@@ -32,4 +32,4 @@ const DoctorDashboard = () => {
   );
 };
 
-export default DoctorDashboard;
+export default officerDashboard;

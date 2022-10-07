@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Basic/Navbar";
-import Leftside from "../Dashbaord/LeftsideDoctor";
+import Leftsideofficer from "../Dashbaord/Leftsideofficer";
 import { Row,Col, Container, FormGroup, Input, Label, Button } from 'reactstrap';
 import { Redirect, useHistory } from 'react-router';
 
 import axios from "axios";
 
-const AddDoc = () => {
+const Addoff = () => {
     const [form,setForm]= useState({
         username:"",
 		password:"",
@@ -26,7 +26,7 @@ const AddDoc = () => {
         const newOfficer ={...form};
 
         try {
-            const res = await fetch(`http://localhost:5000/doctors/add`,
+            const res = await fetch(`http://localhost:5000/officers/add`,
                 {
                     method: "POST",
                     headers: {
@@ -37,7 +37,7 @@ const AddDoc = () => {
             )
             // console.log(res);
             if (res.status === 200) {
-                history.push('/doctorlogin')
+                history.push('/officerlogin')
             }
             else {
                 console.log(res.message)
@@ -171,4 +171,4 @@ const AddDoc = () => {
         </div>
       );
     };
-    export default AddDoc;
+    export default Addoff;

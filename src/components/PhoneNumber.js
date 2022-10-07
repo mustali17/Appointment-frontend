@@ -12,7 +12,7 @@ function PhoneNumber() {
 
     async function updatePhoneNumber() {
         try {
-            const res = await axios.put(`http://localhost:5000/patients/update-phone`,
+            const res = await axios.put(`http://localhost:5000/citizens/update-phone`,
                 {
                     googleId: googleId,
                     phoneNumber: number
@@ -20,7 +20,7 @@ function PhoneNumber() {
             )
             // console.log(res);
             if (res.status === 200) {
-                history.push('/patient')
+                history.push('/citizen')
             }
             else {
                 console.log(res.message)

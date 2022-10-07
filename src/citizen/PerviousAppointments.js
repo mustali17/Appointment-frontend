@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import jwt_decode from "jwt-decode";
 import Scrollbar from "react-scrollbars-custom";
+import { BsPencilSquare } from "react-icons/bs";
 import Navbar from "../Basic/Navbar";
 import "../Dashbaord/dashboard.css";
-import StarPicker from 'react-star-picker';
-import Leftside from "../Dashbaord/LeftsideDoctor";
+
+import Leftside from "../Dashbaord/Leftsidecitizen";
+
 import { Link } from "react-router-dom";
 
-const DocAppointments = () => {
-
-  //   console.log(decoded);
-
+const CitizenAppointments = () => {
   const [Appointments, setAppointments] = useState([]);
 
   const fetchAppointments = async () => {
 
-    var token = localStorage.getItem("token");
-    var decoded = jwt_decode(token);
     const { data } = await Axios.post(
-      `http://localhost:5000/doctors/previous-appointments/`,
+      `http://localhost:5000/citizens/previous-appointments/`,
       {
-        doctorId: decoded._id,
+        googleId: localStorage.getItem("googleId"),
       }
     );
     // console.log(data);
@@ -61,20 +57,28 @@ const DocAppointments = () => {
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
-                    <th scope="col">Patient Name</th>
-					<th scope="col" style={{textAlign:'center'}}>Feedback</th>
+                    <th scope="col">Officer Name</th>
+                    <th scope="col">Feedback</th>
                   </tr>
                 </thead>
                 <tbody>
                   {Appointments.map((Appointment) => (
-                    <tr>
+                    <tr key={Appointment._id}>
                       <th scope="row">{Appointment.date}</th>
                       <th scope="row">{Appointment.slotTime}</th>
-                      <th scope="row">{Appointment.patientName}</th>
-					  {Appointment.feedback.given ? <th scope="row" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-						  <StarPicker value={Appointment.feedback.stars} size="20"></StarPicker>
-						  <Link to={`/doctor/feedback/${Appointment._id}`}>Details</Link>
-					  </th> : <th scope="row" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>-</th>}
+                      <th scope="row">{Appointment.officerName}</th>
+                      <th scope="row">
+                        <div style={{
+                          display: 'flex'
+                        }}>
+                          <Link to={`/citizen/feedback/${Appointment._id}`}>
+                            <BsPencilSquare />
+                          </Link>
+                          {Appointment.feedback.given && <div style={{
+                            margin: '0 15px'
+                          }}>{Appointment.feedback.stars}/5</div>}
+                        </div>
+                      </th>
                     </tr>
                   ))}
                 </tbody>
@@ -87,4 +91,4 @@ const DocAppointments = () => {
   );
 };
 
-export default DocAppointments;
+export default CitizenAppointments;

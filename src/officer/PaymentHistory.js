@@ -1,23 +1,27 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import jwt_decode from "jwt-decode";
 import Scrollbar from "react-scrollbars-custom";
-import { BsPencilSquare } from "react-icons/bs";
 import Navbar from "../Basic/Navbar";
 import "../Dashbaord/dashboard.css";
-
-import Leftside from "../Dashbaord/LeftsidePatient";
-
+import StarPicker from 'react-star-picker';
+import Leftside from "../Dashbaord/Leftsideofficer";
 import { Link } from "react-router-dom";
 
-const PatientAppointments = () => {
+const OffAppointments = () => {
+
+  //   console.log(decoded);
+
   const [Appointments, setAppointments] = useState([]);
 
   const fetchAppointments = async () => {
 
+    var token = localStorage.getItem("token");
+    var decoded = jwt_decode(token);
     const { data } = await Axios.post(
-      `http://localhost:5000/patients/previous-appointments/`,
+      `http://localhost:5000/officers/previous-appointments/`,
       {
-        googleId: localStorage.getItem("googleId"),
+        officerId: decoded._id,
       }
     );
     // console.log(data);
@@ -57,28 +61,20 @@ const PatientAppointments = () => {
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
-                    <th scope="col">Doctor Name</th>
-                    <th scope="col">Feedback</th>
+                    <th scope="col">Citizen Name</th>
+					<th scope="col" style={{textAlign:'center'}}>Feedback</th>
                   </tr>
                 </thead>
                 <tbody>
                   {Appointments.map((Appointment) => (
-                    <tr key={Appointment._id}>
+                    <tr>
                       <th scope="row">{Appointment.date}</th>
                       <th scope="row">{Appointment.slotTime}</th>
-                      <th scope="row">{Appointment.doctorName}</th>
-                      <th scope="row">
-                        <div style={{
-                          display: 'flex'
-                        }}>
-                          <Link to={`/patient/feedback/${Appointment._id}`}>
-                            <BsPencilSquare />
-                          </Link>
-                          {Appointment.feedback.given && <div style={{
-                            margin: '0 15px'
-                          }}>{Appointment.feedback.stars}/5</div>}
-                        </div>
-                      </th>
+                      <th scope="row">{Appointment.citizenName}</th>
+					  {Appointment.feedback.given ? <th scope="row" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+						  <StarPicker value={Appointment.feedback.stars} size="20"></StarPicker>
+						  <Link to={`/officer/feedback/${Appointment._id}`}>Details</Link>
+					  </th> : <th scope="row" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>-</th>}
                     </tr>
                   ))}
                 </tbody>
@@ -91,4 +87,4 @@ const PatientAppointments = () => {
   );
 };
 
-export default PatientAppointments;
+export default OffAppointments;
