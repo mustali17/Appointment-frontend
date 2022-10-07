@@ -6,15 +6,27 @@ import patientlogin from "../image/8741.jpg";
 
 const LoginButton = () => {
   return (
-    <div className="d-flex flex-md-row flex-column justify-content-around align-items-center my-4">
+   
+    
+   
+   
+   <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
       <Card Image={doctorlogin} link={"/doctorlogin"} />
+      </div>
+      <div class="col-4">
       <Card
         LoginButton="Patient"
         Image={patientlogin}
         link={"/patient"}
         login="Patient"
       />
+      </div>
     </div>
+  </div>
+
+
   );
 };
 
