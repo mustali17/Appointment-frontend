@@ -5,10 +5,10 @@ import Scrollbar from "react-scrollbars-custom";
 import Navbar from "../Basic/Navbar";
 import "../Dashbaord/dashboard.css";
 import StarPicker from 'react-star-picker';
-import Leftside from "../Dashbaord/LeftsideDoctor";
+import Leftside from "../Dashbaord/Leftsideofficer";
 import { Link } from "react-router-dom";
 
-const DocAppointments = () => {
+const OffAppointments = () => {
 
   //   console.log(decoded);
 
@@ -19,9 +19,9 @@ const DocAppointments = () => {
     var token = localStorage.getItem("token");
     var decoded = jwt_decode(token);
     const { data } = await Axios.post(
-      `http://localhost:5000/doctors/previous-appointments/`,
+      `http://localhost:5000/officers/previous-appointments/`,
       {
-        doctorId: decoded._id,
+        officerId: decoded._id,
       }
     );
     // console.log(data);
@@ -70,10 +70,10 @@ const DocAppointments = () => {
                     <tr>
                       <th scope="row">{Appointment.date}</th>
                       <th scope="row">{Appointment.slotTime}</th>
-                      <th scope="row">{Appointment.patientName}</th>
+                      <th scope="row">{Appointment.citizenName}</th>
 					  {Appointment.feedback.given ? <th scope="row" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
 						  <StarPicker value={Appointment.feedback.stars} size="20"></StarPicker>
-						  <Link to={`/doctor/feedback/${Appointment._id}`}>Details</Link>
+						  <Link to={`/officer/feedback/${Appointment._id}`}>Details</Link>
 					  </th> : <th scope="row" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>-</th>}
                     </tr>
                   ))}
@@ -87,4 +87,4 @@ const DocAppointments = () => {
   );
 };
 
-export default DocAppointments;
+export default OffAppointments;

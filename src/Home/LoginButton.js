@@ -1,11 +1,12 @@
 import React from "react";
 import Card from "./Card";
 
-import doctorlogin from "../image/4565.jpg";
-import patientlogin from "../image/8741.jpg";
+import officerlogin from "../image/4565.jpg";
+import citizenlogin from "../image/8741.jpg";
 
 const LoginButton = () => {
   return (
+<<<<<<< HEAD
    
     
    
@@ -16,11 +17,15 @@ const LoginButton = () => {
       <Card Image={doctorlogin} link={"/doctorlogin"} />
       </div>
       <div class="col-4">
+=======
+    <div className="d-flex flex-md-row flex-column justify-content-around align-items-center my-4">
+      <Card Image={officerlogin} link={"/officerlogin"} />
+>>>>>>> 9da060276b94b5c91ceb381ad7690a62923ea488
       <Card
-        LoginButton="Patient"
-        Image={patientlogin}
-        link={"/patient"}
-        login="Patient"
+        LoginButton="citizen"
+        Image={citizenlogin}
+        link={"/citizen"}
+        login="citizen"
       />
       </div>
     </div>
@@ -42,14 +47,14 @@ export default LoginButton;
 //   }}
 // >
 //   <div className="col-12 col-md-6 mb-4  ">
-//     <Card Image={doctorlogin} link={"/doctorlogin"} />
+//     <Card Image={officerlogin} link={"/officerlogin"} />
 //   </div>
 //   <div className="col-12 col-md-6 mb-4">
 //     <Card
-//       LoginButton="Patient"
-//       Image={patientlogin}
-//       link={"/patient"}
-//       login="Patient"
+//       LoginButton="citizen"
+//       Image={citizenlogin}
+//       link={"/citizen"}
+//       login="citizen"
 //     />
 //   </div>
 // </div>

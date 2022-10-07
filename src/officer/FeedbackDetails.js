@@ -15,7 +15,7 @@ const FeedbackDetails = () => {
 		async function init() {
 			setIsLoading(true);
 			const { data } = await axios.get(
-				`http://localhost:5000/doctors/appointment/${id}`
+				`http://localhost:5000/officers/appointment/${id}`
 			);
 			
 			setFeedback(data?.feedback);
@@ -76,7 +76,7 @@ const FeedbackDetails = () => {
 					justifyContent: 'space-around',
 					padding: '20px 0px'
 				}}>
-				<Link to="/doctor/payment-history">
+				<Link to="/officer/payment-history">
 					<Button color="danger">GO BACK</Button>
 				</Link>
 			</Row>

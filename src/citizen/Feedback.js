@@ -33,7 +33,7 @@ const Feedback = () => {
 				console.log(data)
 			}
 
-			history.push("/patient/");
+			history.push("/citizen/");
 		}
 		catch (err) {
 			console.log(err);
@@ -78,7 +78,7 @@ const Feedback = () => {
 					justifyContent: 'space-around',
 					padding: '20px 0px'
 				}}>
-				<Link to="/patient/previousappointments">
+				<Link to="/citizen/previousappointments">
 					<Button color="danger">GO BACK</Button>
 				</Link>
 				<Button color="warning" onClick={putFeedback}>Sumbit</Button>

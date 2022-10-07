@@ -1,10 +1,10 @@
 import React from 'react';
 import Footer from '../Basic/Footer';
 import Navbar from '../Basic/Navbar';
-import LoginForm from '../Doctorlogin/LoginForm';
+import LoginForm from '../officerLogin/LoginForm';
 
 
-const DoctorLogin=()=>{
+const officerLogin=()=>{
 
     return(
         <div >
@@ -22,4 +22,4 @@ const DoctorLogin=()=>{
 
 }
 
-export default DoctorLogin
+export default officerLogin

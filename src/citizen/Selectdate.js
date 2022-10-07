@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../Basic/Navbar";
-import Leftside from "../Dashbaord/LeftsidePatient";
+import Leftside from "../Dashbaord/Leftsidecitizen";
 import "react-calendar/dist/Calendar.css";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -57,7 +57,7 @@ const Selectdate = (props) => {
             <Col> */}
             <div className="row justify-content-center mt-5 ml-5">
               <div className="col-2">
-                <Link to="/patient/searchdoctor">
+                <Link to="/citizen/searchofficer">
                   <Button color="danger">GO BACK</Button>
                 </Link>
               </div>
@@ -66,10 +66,10 @@ const Selectdate = (props) => {
               <div className="col-4">
                 <Link
                   to={{
-                    pathname: "/patient/book-slot",
+                    pathname: "/citizen/book-slot",
                     state: {
                       date: date,
-                      doctor: props.location.doctor.doctor,
+                      officer: props.location.officer.officer,
                     },
                   }}
                 >

@@ -27,7 +27,7 @@ const Navbar = () => {
         window.localStorage.setItem("googleId", profile.getId());
 
         const serverRes = await axios.post(
-          `http://localhost:5000/patients/google-login/`,
+          `http://localhost:5000/citizens/google-login/`,
           {
             tokenId: profile.getAuthResponse().id_token,
           }
@@ -40,9 +40,9 @@ const Navbar = () => {
           setGoogleId(profile.getId());
 
           if (serverRes.data.phoneNumberExists === true) {
-            history.push("/patient");
+            history.push("/citizen");
           } else {
-            history.push("/patient/update-phone");
+            history.push("/citizen/update-phone");
           }
         }
         else {
@@ -56,9 +56,9 @@ const Navbar = () => {
   }
 
   function signOutGoogle() {
-    // Different logic for doctor and patient
+    // Different logic for officer and citizen
 
-    // Patient logic
+    // citizen logic
     if (window.gapi.auth2.getAuthInstance().isSignedIn.get()) {
       window.gapi.auth2.getAuthInstance().signOut().then(() => {
         console.log("[Google] Signed out successfully!");
@@ -72,10 +72,10 @@ const Navbar = () => {
       });
     }
 
-    // Doctor logic
+    // officer logic
     else {
       window.localStorage.removeItem("token");
-      console.log("[Doctor] Signed out successfully!");
+      console.log("[officer] Signed out successfully!");
       setToken(null);
       history.push("/");
     }

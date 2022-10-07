@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Basic/Navbar";
-import LeftsidePatient from "../Dashbaord/LeftsidePatient";
+import Leftsidecitizen from "../Dashbaord/Leftsidecitizen";
 
 import Axios from "axios";
 
 const BookingSlots = (props) => {
   // console.log(props.location.state)
-  const { date, doctor } = props.location.state;
-  // console.log("Date: " + date + " DoctorId: " + doctorId);
+  const { date, officer } = props.location.state;
+  // console.log("Date: " + date + " officerId: " + officerId);
   const [dateId, setdateId] = useState();
   const [Slots, setSlots] = useState([]);
 
   useEffect(() => {
     const fetchDate = async (dateToPost) => {
       const { data } = await Axios.post(
-        `http://localhost:5000/doctors/get-slots/`,
+        `http://localhost:5000/officers/get-slots/`,
         {
-          doctorId: doctor._id,
+          officerId: officer._id,
           date: dateToPost
         }
       );
@@ -58,7 +58,7 @@ const BookingSlots = (props) => {
       <div>
         <div className="row m-5" style={{ maxWidth: "100%" }}>
           <div className="col-3 col-md-3 p-4 bg-white ">
-            <LeftsidePatient />
+            <Leftsidecitizen />
           </div>
           <div
             className="col-9 col-md-9 p-4"
@@ -85,10 +85,10 @@ const BookingSlots = (props) => {
                       <td>
                         <Link
                           to={{
-                            pathname: "/patient/payment",
+                            pathname: "/citizen/payment",
                             data: {
                               dateId:dateId,
-                              doctor:doctor,
+                              officer:officer,
                               slotId:slot._id,
                             },
                           }}

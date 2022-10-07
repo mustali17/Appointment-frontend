@@ -5,17 +5,17 @@ import { BsPencilSquare } from "react-icons/bs";
 import Navbar from "../Basic/Navbar";
 import "../Dashbaord/dashboard.css";
 
-import Leftside from "../Dashbaord/LeftsidePatient";
+import Leftside from "../Dashbaord/Leftsidecitizen";
 
 import { Link } from "react-router-dom";
 
-const PatientAppointments = () => {
+const CitizenAppointments = () => {
   const [Appointments, setAppointments] = useState([]);
 
   const fetchAppointments = async () => {
 
     const { data } = await Axios.post(
-      `http://localhost:5000/patients/previous-appointments/`,
+      `http://localhost:5000/citizens/previous-appointments/`,
       {
         googleId: localStorage.getItem("googleId"),
       }
@@ -66,12 +66,12 @@ const PatientAppointments = () => {
                     <tr key={Appointment._id}>
                       <th scope="row">{Appointment.date}</th>
                       <th scope="row">{Appointment.slotTime}</th>
-                      <th scope="row">{Appointment.doctorName}</th>
+                      <th scope="row">{Appointment.officerName}</th>
                       <th scope="row">
                         <div style={{
                           display: 'flex'
                         }}>
-                          <Link to={`/patient/feedback/${Appointment._id}`}>
+                          <Link to={`/citizen/feedback/${Appointment._id}`}>
                             <BsPencilSquare />
                           </Link>
                           {Appointment.feedback.given && <div style={{
@@ -91,4 +91,4 @@ const PatientAppointments = () => {
   );
 };
 
-export default PatientAppointments;
+export default CitizenAppointments;

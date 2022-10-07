@@ -3,29 +3,29 @@ import Option from "./Option";
 import "./dashboard.css";
 import { Link } from "react-router-dom";
 
-const LeftsideDoctor = () => {
+const Leftsideofficer = () => {
   return (
     <div>
       <ul className="mt-5">
         <li>
-          <Link to="/doctor">
+          <Link to="/officer">
             <Option Value="Today's Schedule" Option="today" />
           </Link>
         </li>
         <li style={{ textDecoration: "none" }}>
-          <Link to="/doctor/perosnaldetails">
+          <Link to="/officer/perosnaldetails">
             <Option Value="Personal Details" />
           </Link>
         </li>
 
         <li style={{ textDecoration: "none" }}>
-          <Link to="/doctor/payment-history">
+          <Link to="/officer/payment-history">
             <Option Value="Previous Appointments" />
           </Link>
         </li>
 
         {/* <li style={{ textDecoration: "none" }}>
-          <Link to="/doctor/feedback">
+          <Link to="/officer/feedback">
             <Option Value="Feedback" />
           </Link>
         </li> */}
@@ -34,4 +34,4 @@ const LeftsideDoctor = () => {
   );
 };
 
-export default LeftsideDoctor;
+export default Leftsideofficer;

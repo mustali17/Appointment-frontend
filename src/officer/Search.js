@@ -34,7 +34,7 @@ const Search = () => {
   function onTextChanged(e) {
     let value = e.target.value;
     setText(value);
-    fetchDoctor();
+    fetchofficer();
     value = value.toLowerCase();
     if (value !== "") setSuggestions(memoized_trie.find(value));
     else setSuggestions([]);
@@ -66,27 +66,27 @@ const Search = () => {
     );
   }
 
-  const [Doctor, setDoctor] = useState([]);
+  const [officer, setofficer] = useState([]);
 
-  const fetchDoctor = async () => {
+  const fetchofficer = async () => {
     const { data } = await Axios.get(
-      `http://localhost:5000/doctors/`
+      `http://localhost:5000/officers/`
     );
-    setDoctor(data);
+    setofficer(data);
     console.log(data);
   };
 
   const UpdateDisplay = (text) => {
-    setDoctor((Doctor) => {
-      return Doctor.filter(
-        (doctor) => doctor.specialization.toLowerCase() === text.toLowerCase()
+    setofficer((officer) => {
+      return officer.filter(
+        (officer) => officer.specialization.toLowerCase() === text.toLowerCase()
       );
     });
-    console.log(Doctor);
+    console.log(officer);
   };
 
   useEffect(() => {
-    fetchDoctor();
+    fetchofficer();
   }, []);
 
   return (
@@ -124,26 +124,26 @@ const Search = () => {
         className="col-12 col-md-12"
       >
         <div className="row">
-          {Doctor.map((doc) => (
-            // <ListGroupItem key={doc.id} className="mb-3">
-            <div className="col-sm-6 mb-2" key={doc._id}>
+          {officer.map((off) => (
+            // <ListGroupItem key={off.id} className="mb-3">
+            <div className="col-sm-6 mb-2" key={off._id}>
               <div className="card">
                 <div className="card-body">
                   <div className="text-info">
                     <h6>
                       Officer Name:
-                      <span className="text-uppercase"> {doc.name}</span>
+                      <span className="text-uppercase"> {off.name}</span>
                     </h6>
                   </div>
-                  <div>Department : {doc.specialization}</div>
-                  <div>Phone Number : {doc.phoneNumber}</div>
+                  <div>Department : {off.specialization}</div>
+                  <div>Phone Number : {off.phoneNumber}</div>
                   <br/>
                   <div className="row mb-0 pb-0">
                     
                     <div
                       className=" col align-self-end col-md-2 offset-md-3 inline"
                       style={{ textAlign: "center" }}
-                    ><Link to={{ pathname: "/patient/selectdate", doctor: { doctor: doc } }}>
+                    ><Link to={{ pathname: "/citizen/selectdate", officer: { officer: off } }}>
                       <button className="btn btn-sm btn-primary"
                      
                       >  Book</button> </Link>

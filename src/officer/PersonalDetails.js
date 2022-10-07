@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from "react";
 import Navbar from "../Basic/Navbar";
-import Leftside from "../Dashbaord/LeftsideDoctor";
+import Leftside from "../Dashbaord/Leftsideofficer";
 import jwt_decode from "jwt-decode";
 
 import "../Dashbaord/dashboard.css";
@@ -8,7 +8,7 @@ import { AuthContext } from "../Auth/AuthContext";
 
 const PersonalDetails = () => {
   const { token } = useContext(AuthContext);
-  const doctor = useMemo(() => jwt_decode(token), [token]);
+  const officer = useMemo(() => jwt_decode(token), [token]);
 
   return (
     <div style={{ height: "100vh" }}>
@@ -36,21 +36,21 @@ const PersonalDetails = () => {
                   <span className="badge badge-info mr-2 p-2 text-uppercase ">
                     Name:
                   </span>
-                  <span className="text-uppercase">{doctor.name}</span>
+                  <span className="text-uppercase">{officer.name}</span>
                 </li>
                 <li className="list-group-item">
                   <span className="badge badge-info mr-2 p-2 text-uppercase">
                     Department:
                   </span>
                   <span className="text-capitalize">
-                    {doctor.specialization}
+                    {officer.specialization}
                   </span>
                 </li>
                 <li className="list-group-item">
                   <span className="badge badge-info mr-2 p-2 text-uppercase">
                     Phone No:
                   </span>
-                  {doctor.phoneNumber}
+                  {officer.phoneNumber}
                 </li>
                 
               </ul>

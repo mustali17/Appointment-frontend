@@ -7,24 +7,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home";
-import DoctorLogin from "./Pages/DoctorLogin";
-import DoctorDashboard from "./Pages/DoctorDashboard";
-import PaitentDashboard from "./Pages/PaitentDashboard";
+import officerLogin from "./Pages/officerLogin";   // done
+import officerDashboard from "./Pages/officerDashboard"; // done
+import citizenDashboard from "./Pages/citizenDashboard";
 import Error from "./Pages/Error";
 import { AuthContext } from "./Auth/AuthContext";
 import PhoneNumber from "./components/PhoneNumber";
-import PersonalDetails from "./Doctor/PersonalDetails";
-import AddDoc from "./Doctor/AddDoc";
-import SearchDoctor from "./Patient/SearchDoctor";
-import PerviousAppointments from "./Patient/PerviousAppointments";
+import PersonalDetails from "./officer/PersonalDetails";
+import Addoff from "./officer/Addoff";
+import Searchofficer from "./citizen/Searchofficer";
+import PerviousAppointments from "./citizen/PerviousAppointments";
 import Spinner from "react-bootstrap/Spinner";
-import Selectdate from "./Patient/Selectdate";
-import BookingSlots from "./Doctor/BookingSlots";
-import Payment from "./Patient/Payment";
-import DocAppointments from "./Doctor/PaymentHistory";
-import AppointmentStatus from "./Patient/AppointmentStatus";
-import Pfeedback from './Patient/Feedback';
-import FeedbackDetails from './Doctor/FeedbackDetails';
+import Selectdate from "./citizen/Selectdate";
+import BookingSlots from "./officer/BookingSlots";
+import Payment from "./citizen/Payment";
+import OffAppointments from "./officer/PaymentHistory";
+import AppointmentStatus from "./citizen/AppointmentStatus";
+import Pfeedback from './citizen/Feedback';
+import FeedbackDetails from './officer/FeedbackDetails';
 
 function App() {
 	const [token, setToken] = useState(window.localStorage.getItem("token"));
@@ -81,34 +81,33 @@ function App() {
 			<AuthContext.Provider value={{ token, setToken, googleId, setGoogleId }}>
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/doctorlogin" component={DoctorLogin} />
-					<Route exact path="/doctor" component={DoctorDashboard} />
-					<Route exact path="/patient/searchdoctor" component={SearchDoctor} />
-					<Route exact path="/patient" component={PaitentDashboard} />
-					<Route exact path="/patient/update-phone" component={PhoneNumber} />
+					<Route exact path="/officerLogin" component={officerLogin} />
+					<Route exact path="/officer" component={officerDashboard} />
+					<Route exact path="/citizen/searchofficer" component={Searchofficer} />
+					<Route exact path="/citizen" component={citizenDashboard} />
+					<Route exact path="/citizen/update-phone" component={PhoneNumber} />
 					<Route
 						exact
-						path="/patient/previousappointments"
+						path="/citizen/previousappointments"
 						component={PerviousAppointments}
 					/>
 					<Route
 						exact
-						path="/doctor/perosnaldetails"
+						path="/officer/perosnaldetails"
 						component={PersonalDetails}
 					/>
 					<Route
 						exact
-						path="/doctor/payment-history"
-						component={DocAppointments}
+						path="/officer/payment-history"
+						component={OffAppointments}
 					/>
-					<Route exact path="/doctor/feedback/:id" component={FeedbackDetails} />
-
-					<Route exact path="/patient/selectdate" component={Selectdate} />
-					<Route exact path="/patient/book-slot" component={BookingSlots} />
-					<Route exact path="/patient/payment" component={Payment} />
-					<Route exact path="/patient/appointment-status" component={AppointmentStatus} />
-					<Route exact path="/patient/feedback/:id" component={Pfeedback} />
-					<Route exact path="/doctor/addDoc" component={AddDoc} />
+					<Route exact path="/officer/feedback/:id" component={FeedbackDetails} />
+					<Route exact path="/citizen/selectdate" component={Selectdate} />
+					<Route exact path="/citizen/book-slot" component={BookingSlots} />
+					<Route exact path="/citizen/payment" component={Payment} />
+					<Route exact path="/citizen/appointment-status" component={AppointmentStatus} />
+					<Route exact path="/citizen/feedback/:id" component={Pfeedback} />
+					<Route exact path="/officer/addoff" component={Addoff} />
 
 					<Route path="*">
 						<Error />
