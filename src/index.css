@@ -15,4 +15,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.copyright{
+margin: 0 auto;
+text-align: center;
+
+}
 
