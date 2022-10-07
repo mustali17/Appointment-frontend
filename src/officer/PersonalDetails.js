@@ -48,6 +48,14 @@ const PersonalDetails = () => {
                 </li>
                 <li className="list-group-item">
                   <span className="badge badge-info mr-2 p-2 text-uppercase">
+                    Desiignation:
+                  </span>
+                  <span className="text-capitalize">
+                    {officer.designation}
+                  </span>
+                </li>
+                <li className="list-group-item">
+                  <span className="badge badge-info mr-2 p-2 text-uppercase">
                     Phone No:
                   </span>
                   {officer.phoneNumber}

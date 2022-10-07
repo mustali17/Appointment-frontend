@@ -136,6 +136,7 @@ const Search = () => {
                     </h6>
                   </div>
                   <div>Department : {off.specialization}</div>
+                  <div>Designation : {off.designation}</div>
                   <div>Phone Number : {off.phoneNumber}</div>
                   <br/>
                   <div className="row mb-0 pb-0">
