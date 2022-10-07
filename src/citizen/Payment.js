@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import Navbar from "../Basic/Navbar";
 import Leftside from "../Dashbaord/Leftsidecitizen";
 import StripeCheckoutButton from "react-stripe-checkout";
-import { toast } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 import axios from "axios";
 // import { Toast } from "react-toastify/dist/components";
 
@@ -201,7 +201,7 @@ const Payment = (props) => {
                         Book Now&nbsp;&nbsp;&nbsp;
                         <span className="glyphicon glyphicon-chevron-right" />
                       </button>
-                    
+                    <ToastContainer/>
                   </div>
                 </div>
               </div>

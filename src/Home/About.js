@@ -15,21 +15,16 @@ const About = () => {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title">GMC Appointment Booking System</h5>
+            <h5 className="card-title">GMC Appointment Booking</h5>
             <p className="card-text">
-              One of main issue with current pandemic situation is that the
-              hospitals are bit busy dealing with covid patients and other
-              patients showing similar symptoms so its not easy for their
-              regular patients who used to get a checkup or consultation. This
-              is worsened by the restrictions due to lockdowns and the fear of
-              contracting the contagious virus. So to deal with this issue we
-              have come up with an approach and built this system which provides
-              medical services and allows users to connect and consult with
-              doctors. The aim was to build a minimalist UI for the system so
-              people of any age group could easily navigate through it. A
-              hospital can register their doctors in the system through their
-              legal process and then patients can search doctors from varied
-              specialization for consultation.
+            The Gandhinagar Municipal Corporation was set up on 16 March 2010 after
+            a ruling by the Gujarat High Court in 2009. Prior to that, Gandhinagar
+            was the only state capital in India which did not have an elected body 
+            administrating it. The establishment of a Municipal Corporation to 
+            administrate and govern the city introduced municipal taxes to the 
+            residents of the city as well as made the city eligible to receive 
+            funding from the Government of India under the 
+            Jawaharlal Nehru National Urban Renewal Mission (JnNURM)
             </p>
           </div>
         </div>

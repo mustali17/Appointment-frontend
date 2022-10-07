@@ -88,13 +88,13 @@ const Navbar = () => {
     <span style={{color:"white"}}>Gandhinagar Muncipal Corporation</span>
   </a>  */}
       <NavLink to='/'>
-      <img
-          src={logo}
+      {/* <img
+          src={Image}
           alt=""
           width="50"
           height="50"
           className="d-inline-block align-top mr-2 mt-1"
-        ></img>
+        ></img> */}
       {/* <img src={logo}  width="60" height="50" alt="logo" /> */}
       Gandhinagar Muncipal Corporation
       </NavLink>
@@ -109,9 +109,7 @@ const Navbar = () => {
         <NavLink to='/contact-us' activeStyle>
         Contact Us
         </NavLink>
-        <NavLink to='/sign-up' activeStyle>
-        about
-        </NavLink>
+        
       </NavMenu> 
       <NavBtn>
          {!token && (
