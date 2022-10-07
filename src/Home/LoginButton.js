@@ -6,7 +6,6 @@ import citizenlogin from "../image/8741.jpg";
 
 const LoginButton = () => {
   return (
-<<<<<<< HEAD
    
     
    
@@ -17,10 +16,6 @@ const LoginButton = () => {
       <Card Image={doctorlogin} link={"/doctorlogin"} />
       </div>
       <div class="col-4">
-=======
-    <div className="d-flex flex-md-row flex-column justify-content-around align-items-center my-4">
-      <Card Image={officerlogin} link={"/officerlogin"} />
->>>>>>> 9da060276b94b5c91ceb381ad7690a62923ea488
       <Card
         LoginButton="citizen"
         Image={citizenlogin}
