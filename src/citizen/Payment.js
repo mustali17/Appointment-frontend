@@ -193,6 +193,9 @@ const Payment = (props) => {
                       </tbody>
                     </table>
                     
+                    *You should be present there 15 min before your appointment.
+                    <br/>
+                    <br/>
                       <button
                         type="button"
                         className="btn btn-success btn-lg btn-block"

@@ -12,10 +12,10 @@ const LoginButton = () => {
    
    <div class="container">
     <div class="row justify-content-center">
-      <div class="col-4">
-      <Card Image={doctorlogin} link={"/doctorlogin"} />
+      <div class="col-6">
+      <Card Image={officerlogin} link={"/officerlogin"} />
       </div>
-      <div class="col-4">
+      <div class="col-6">
       <Card
         LoginButton="citizen"
         Image={citizenlogin}
