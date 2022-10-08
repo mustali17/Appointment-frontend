@@ -14,6 +14,7 @@ const Addoff = () => {
 		name:"",
 		phoneNumber:"",
 		specialization:"",
+        designation:"",
     })
     function updateForm(value){
         return setForm((prev)=>{
@@ -158,7 +159,24 @@ const Addoff = () => {
                         </Col>
                         
                     </Row>
-                    
+                    <Row>
+                        <Col >
+                        <Label for='desingnation' ><h5>Designation</h5> </Label>  
+                        </Col>
+                        <Col  >
+                        <Input 
+                        
+                            type='text'
+                            name='designation'
+                            id='designation'
+                            placeholder='provide your designation'
+                            value={form.designation}
+                            onChange={(e)=> updateForm({designation:e.target.value})}
+                            
+                        />
+                        </Col>
+                        
+                    </Row>
                        
                 
 

@@ -6,24 +6,22 @@ import citizenlogin from "../image/8741.jpg";
 
 const LoginButton = () => {
   return (
-
-      
-   
-<div class="container">
-    <div class="row">
+    <div class="container">
+      <div class = "row">
         <div class="col-sm-6">
         <Card Image={officerlogin} link={"/officerlogin"} />
         </div>
         <div class="col-sm-6">
         <Card
-        LoginButton="citizen"
-        Image={citizenlogin}
-        link={"/citizen"}
-        login="citizen"
-      />
+          LoginButton="citizen"
+          Image={citizenlogin}
+          link={"/citizen"}
+          login="citizen"
+          />
+          </div>
         </div>
     </div>
-</div>
+    
 
   );
 };

@@ -4,7 +4,7 @@ import Image from "../image/7566.jpg";
 
 const About = () => {
   return (
-    <div className="container">
+    <div className="container" id="about">
     <div className="card my-5  ">
       <div className="row g-0">
         <div className="col-md-4 order-md-2">

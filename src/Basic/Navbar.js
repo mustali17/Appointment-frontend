@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, /*NavLink,*/ useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from "../image/navbaricon1.png";
+import logo from "../image/logobymanan.jpeg";
 import { AuthContext } from "../Auth/AuthContext";
 import axios from "axios";
 // import { Nav } from "react-bootstrap";
@@ -9,6 +9,7 @@ import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from "./NavbarElements
 // import GoogleLogin from "react-google-login";
 // import axios from "axios";
 import Image from "../image/7566.jpg";
+import { size } from "lodash";
 
 
 const Navbar = () => {
@@ -95,22 +96,11 @@ const Navbar = () => {
           height="50"
           className="d-inline-block align-top mr-2 mt-1"
         ></img> */}
-      {/* <img src={logo}  width="60" height="50" alt="logo" /> */}
-      Gandhinagar Muncipal Corporation
+      <img src={logo}  width="70" height="50" alt="logo" style={{marginRight:"5px"}} />
+       <span style={{fontFamily:"inherit" , fontSize:"25px"}}>Gandhinagar Muncipal Corporation</span>
       </NavLink>
      <Bars />
-     <NavMenu>
-      <NavLink to='/about' activeStyle>
-        About
-        </NavLink>
-        <NavLink to='/services' activeStyle>
-        Services
-        </NavLink>
-        <NavLink to='/contact-us' activeStyle>
-        Contact Us
-        </NavLink>
-        
-      </NavMenu> 
+     
       <NavBtn>
          {!token && (
         <button
