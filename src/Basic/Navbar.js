@@ -84,20 +84,10 @@ const Navbar = () => {
   return(
     <>
     <Nav>
-     {/* <a className="navbar-brand" href="#">
-    <img src={Image} width="30" height="30" className="d-inline-block align-top" style={{marginRight:"15px"}} alt=""/>
-    <span style={{color:"white"}}>Gandhinagar Muncipal Corporation</span>
-  </a>  */}
+     
       <NavLink to='/'>
-      {/* <img
-          src={Image}
-          alt=""
-          width="50"
-          height="50"
-          className="d-inline-block align-top mr-2 mt-1"
-        ></img> */}
       <img src={logo}  width="70" height="50" alt="logo" style={{marginRight:"5px"}} />
-       <span style={{fontFamily:"inherit" , fontSize:"25px"}}>Gandhinagar Muncipal Corporation</span>
+       <span style={{fontFamily:"inherit" , fontSize:"25px", color:"black"}}>Gandhinagar Muncipal Corporation</span>
       </NavLink>
      <Bars />
      
