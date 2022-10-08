@@ -21,3 +21,7 @@ text-align: center;
 
 }
 
+.Hoover a:hover{
+  text-decoration: none;
+  color: grey;
+}
