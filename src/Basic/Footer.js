@@ -26,14 +26,7 @@ const Footer = () => {
 
 
 
-            <div className="col-12 col-md-6 w-100">
-                <h4 className="white-text">Social Media</h4>
-                <ul>
-                    <li><Link to="#!" className="grey-text"> Facebook</Link></li>
-                    <li><Link to="#!" className="grey-text"> Instagram</Link></li>
-                    <li><Link to="#!" className="grey-text"> Twitter</Link></li>
-                </ul>
-            </div>
+            
                     
                <div className="" style={{margin: "auto"}}>
                   <h6 className="text-center ms-3">Copyright @2022 All rights reserved</h6>
