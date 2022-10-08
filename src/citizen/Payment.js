@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import Navbar from "../Basic/Navbar";
 import Leftside from "../Dashbaord/Leftsidecitizen";
 import StripeCheckoutButton from "react-stripe-checkout";
-import { ToastContainer,toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 // import { Toast } from "react-toastify/dist/components";
 
@@ -103,20 +103,23 @@ const Payment = (props) => {
   }, []);
 
   const handleClick = async (token) => {
-    
 
-    
-      bookSlot();
-      setFinalBalnce(0);
-      toast("Appointment booked successfully", {
-        type: "success"
-      })
-      history.push("/citizen");
-    
 
-    
+
+    bookSlot();
+    setFinalBalnce(0);
+    toast("Appointment booked successfully", {
+      type: "success"
+    })
+    history.push("/citizen");
+
+
+
   };
-
+  const [change, setChange] = useState(true);
+  function buttonHandler() {
+    setChange(!change)
+  }
   return (
     <div style={{ height: "100vh" }}>
       <Navbar />
@@ -186,25 +189,26 @@ const Payment = (props) => {
                             {officer.specialization}
                           </td>
 
-                          
+
                         </tr>
 
-                        
+
                       </tbody>
                     </table>
-                    
-                    *You should be present there 15 min before your appointment.
-                    <br/>
-                    <br/>
-                      <button
-                        type="button"
-                        className="btn btn-success btn-lg btn-block"
-                        onClick={handleClick}
-                      >
-                        Book Now&nbsp;&nbsp;&nbsp;
-                        <span className="glyphicon glyphicon-chevron-right" />
-                      </button>
-                    <ToastContainer/>
+
+                    <input type="checkbox" id="check" name="check" value="check" onChange={buttonHandler} />You should be present there 15 min before your appointment.
+                    <br />
+                    <br />
+                    <button
+                      type="button"
+                      className="btn btn-success btn-lg btn-block"
+                      onClick={handleClick}
+                      disabled={change}
+                    >
+                      Book Now&nbsp;&nbsp;&nbsp;
+                      <span className="glyphicon glyphicon-chevron-right" />
+                    </button>
+                    <ToastContainer />
                   </div>
                 </div>
               </div>
