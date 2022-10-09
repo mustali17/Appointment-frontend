@@ -36,10 +36,10 @@ const TodaysSchedule = () => {
       <tbody>
         {appointments.map((appointment) => (
           <tr key={appointment._id}> 
-            {/* <th scope="row">{appointment.date}</th>
-            <th scope="row">{appointment.slotTime}</th> */}
+            <th scope="row">{appointment.date}</th>
+            {/* <th scope="row">{appointment.slotTime}</th>
             <th scope="row">{appointment.citizenName}</th>
-            <th scope="row"><a href="https://meet.google.com" target="_blank">Join Meet</a></th>
+            <th scope="row"><a href="https://meet.google.com" target="_blank">Join Meet</a></th> */}
           </tr>
         ))} 
       </tbody>
