@@ -87,7 +87,7 @@ const Navbar = () => {
      
       <NavLink to='/'>
       <img src={logo}  width="70" height="50" alt="logo" style={{marginRight:"5px"}} />
-       <span style={{fontFamily:"inherit" , fontSize:"25px", color:"black"}}>Gandhinagar Muncipal Corporation</span>
+       <span style={{fontFamily:"inherit" , fontSize:"25px", color:"black"}}>GMC</span>
       </NavLink>
      <Bars />
      
