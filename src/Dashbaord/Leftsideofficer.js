@@ -9,7 +9,7 @@ const Leftsideofficer = () => {
       <ul className="mt-5">
         <li>
           <Link to="/officer">
-            <Option Value="Today's Schedule" Option="today" />
+            <Option Value="Upcoming Appointments" Option="today" />
           </Link>
         </li>
         <li style={{ textDecoration: "none" }}>

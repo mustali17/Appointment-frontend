@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
-
+// import { Input} from 'reactstrap';
 import Navbar from "../Basic/Navbar";
 import Leftside from "../Dashbaord/Leftsidecitizen";
 import StripeCheckoutButton from "react-stripe-checkout";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import emailjs from '@emailjs/browser';
 // import { Toast } from "react-toastify/dist/components";
 
 function getEndDateTime(dateTime) {
@@ -19,6 +20,7 @@ function getEndDateTime(dateTime) {
 }
 
 const Payment = (props) => {
+  const [reason, setReason] = useState('');
   const [appointments, setAppointments] = useState([]);
     const [isLoading, setIsLoading] = useState()
   const [finalBalnce, setFinalBalnce] = useState(0);
@@ -81,7 +83,7 @@ const Payment = (props) => {
     });
   }
 
-  const { dateId, officer, slotId } = props.location.data;
+  const { dateId,appdate ,officer, slotId,slotTime } = props.location.data;
 
   const bookSlot = async () => {
     const { data } = await Axios.post(
@@ -90,6 +92,7 @@ const Payment = (props) => {
         googleId: localStorage.getItem("googleId"),
         citizenName: JSON.parse(localStorage.getItem("user")).name,
         slotId: slotId,
+        reason:reason,
         dateId: dateId,
         officerId: officer._id,
       }
@@ -99,9 +102,29 @@ const Payment = (props) => {
       createEvent(data._id, data.date + "T" + data.slotTime, data.officerEmail);
     }
   };
-
+  
+  const obj = {
+    from_name:"GMC",
+    to_name:JSON.parse(localStorage.getItem("user")).name,
+    officer:officer.name,   
+    dept:officer.specialization,
+    desig:officer.designation,
+    reason:reason,
+    appdate:appdate,
+    slotTime:slotTime,
+    phoneNumber:JSON.parse(localStorage.getItem("user")).phoneNumber,
+    to_email: JSON.parse(localStorage.getItem("user")).email,
+    message:"Your Appointment has been confirmed"
+  };
 
   const handleClick = async (token) => {
+
+    emailjs.send('service_tp2ckbf', 'template_8hi99ng', obj, 'v5KmhGEgtD2XNLFzc')
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
 
 
 
@@ -156,18 +179,24 @@ const Payment = (props) => {
                       </address>
                     </div>
                     <div className="col-xs-6 col-sm-6 col-md-6 text-right">
+                      <p>
+                        <em>Date: {appdate}</em>
+                      </p>
+                      <p>
+                        <em>Time Slot : {slotTime}</em>
+                      </p>
                     </div>
                   </div>
                   <div className="row">
                     <div className="text-center">
-                      <h1>Confirm Booking</h1>
+                      <h1>Confirm Appointment</h1>
                     </div>
                     <table className="table table-hover text-white">
                       <thead>
                         <tr>
                           <th>Officer Name</th>
                           <th>Department</th>
-
+                          <th>Designation</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -181,7 +210,12 @@ const Payment = (props) => {
                           >
                             {officer.specialization}
                           </td>
-
+                          <td
+                            className="col-md-1"
+                            style={{ textAlign: "center" }}
+                          >
+                            {officer.designation}
+                          </td>
 
                         </tr>
 
@@ -204,7 +238,15 @@ const Payment = (props) => {
                     <ToastContainer />
                   </div>
                 </div>
-              </div>
+                <label for='username' ><h6>Reason: </h6> </label>
+                <input
+					  type="text"
+            maxLength="50px"
+					style={{ height: "10vh" }}
+					  placeholder="Provide Short Reason"
+					  onChange={e => setReason(e.target.value)}
+			        	/>             
+               </div>
             </div>
           </div>
         </div>

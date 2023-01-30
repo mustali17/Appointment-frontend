@@ -10,6 +10,7 @@ const BookingSlots = (props) => {
   const { date, officer } = props.location.state;
   // console.log("Date: " + date + " officerId: " + officerId);
   const [dateId, setdateId] = useState();
+  const [appdate,setappdate]=useState();
   const [Slots, setSlots] = useState([]);
 
   useEffect(() => {
@@ -22,6 +23,8 @@ const BookingSlots = (props) => {
         }
       );
       console.log(data);
+      setappdate(data.date)
+      console.log(appdate);
       setdateId(data._id);
       setSlots(data.slots);
     };
@@ -88,8 +91,10 @@ const BookingSlots = (props) => {
                             pathname: "/citizen/payment",
                             data: {
                               dateId:dateId,
+                              appdate:appdate,
                               officer:officer,
                               slotId:slot._id,
+                              slotTime:slot.time,
                             },
                           }}
                         >

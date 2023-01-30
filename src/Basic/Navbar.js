@@ -90,7 +90,6 @@ const Navbar = () => {
        <span style={{fontFamily:"inherit" , fontSize:"25px", color:"black"}}>Gandhinagar Muncipal Corporation</span>
       </NavLink>
      <Bars />
-     
       <NavBtn>
          {!token && (
         <button
