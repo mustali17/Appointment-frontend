@@ -20,7 +20,7 @@ const Feedback = () => {
 	const putFeedback = async () => {
 		try {
 			const { data } = axios.put(
-				`http://localhost:5000/appointments/feedback/`,
+				`https://appointmentbackend.onrender.com/appointments/feedback/`,
 				{
 					appointmentId: appointmentId.id,
 					stars: rating,

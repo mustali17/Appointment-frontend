@@ -27,7 +27,7 @@ const AppointmentStatus = () => {
 
         const fetchAppointments = async () => {
             var { data } = await Axios.post(
-                `http://localhost:5000/citizens/upcoming-appointments/`,
+                `https://appointmentbackend.onrender.com/citizens/upcoming-appointments/`,
                 {
                     googleId: localStorage.getItem("googleId"),
                 }

@@ -12,7 +12,7 @@ function PhoneNumber() {
 
     async function updatePhoneNumber() {
         try {
-            const res = await axios.put(`http://localhost:5000/citizens/update-phone`,
+            const res = await axios.put(`https://appointmentbackend.onrender.com/citizens/update-phone`,
                 {
                     googleId: googleId,
                     phoneNumber: number

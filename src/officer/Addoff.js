@@ -27,7 +27,7 @@ const Addoff = () => {
         const newOfficer ={...form};
 
         try {
-            const res = await fetch(`http://localhost:5000/officers/add`,
+            const res = await fetch(`https://appointmentbackend.onrender.com/officers/add`,
                 {
                     method: "POST",
                     headers: {

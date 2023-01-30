@@ -15,7 +15,7 @@ const PersonalDetails = () => {
     setLoading(true);
     const getcitizenDetails = async () => {
       const res = await Axios.get(
-        `http://localhost:5000/citizens/getcitizenDetails/${googleId}`
+        `https://appointmentbackend.onrender.com/citizens/getcitizenDetails/${googleId}`
       );
       if (res.status === 200) {
         setcitizen(res.data);

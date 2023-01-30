@@ -15,7 +15,7 @@ const FeedbackDetails = () => {
 		async function init() {
 			setIsLoading(true);
 			const { data } = await axios.get(
-				`http://localhost:5000/officers/appointment/${id}`
+				`https://appointmentbackend.onrender.com/officers/appointment/${id}`
 			);
 			
 			setFeedback(data?.feedback);

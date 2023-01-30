@@ -19,7 +19,7 @@ const OffAppointments = () => {
     var token = localStorage.getItem("token");
     var decoded = jwt_decode(token);
     const { data } = await Axios.post(
-      `http://localhost:5000/officers/previous-appointments/`,
+      `https://appointmentbackend.onrender.com/officers/previous-appointments/`,
       {
         officerId: decoded._id,
       }

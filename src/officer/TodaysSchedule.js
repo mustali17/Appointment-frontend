@@ -12,7 +12,7 @@ const TodaysSchedule = () => {
       var token = localStorage.getItem("token");
       var decoded = jwt_decode(token);
       const { data } = await Axios.post(
-        `http://localhost:5000/officers/todays-appointments`,
+        `https://appointmentbackend.onrender.com/officers/todays-appointments`,
         {
           officerId: decoded._id,
         }
@@ -27,7 +27,7 @@ const TodaysSchedule = () => {
     function promptMe(appointmentId,citizenName,citizenId,officerName){
       const getcitizenDetails = async () => {
         const res = await Axios.get(
-          `http://localhost:5000/citizens/getcitizenEmail/${citizenId}`
+          `https://appointmentbackend.onrender.com/citizens/getcitizenEmail/${citizenId}`
         );
         if (res.status === 200) {
           window.localStorage.setItem("citizen", JSON.stringify(res.data));
@@ -51,7 +51,7 @@ const TodaysSchedule = () => {
       }else {
         console.log("Appointment Canceled");
         try {
-          const res = fetch(`http://localhost:5000/appointments/cancel/${appointmentId}`,
+          const res = fetch(`https://appointmentbackend.onrender.com/appointments/cancel/${appointmentId}`,
           {
            method: "DELETE",
            body:appointmentId,

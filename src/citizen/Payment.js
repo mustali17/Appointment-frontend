@@ -71,7 +71,7 @@ const Payment = (props) => {
       if (event) {
         // console.log(`AddEvent link : ${event.hangoutLink}, Id : ${id}`)
         axios.put(
-          `http://localhost:5000/appointments/add-meet-link`,
+          `https://appointmentbackend.onrender.com/appointments/add-meet-link`,
           {
             appointmentId: id,
             meetLink: event.hangoutLink
@@ -87,7 +87,7 @@ const Payment = (props) => {
 
   const bookSlot = async () => {
     const { data } = await Axios.post(
-      `http://localhost:5000/officers/book-slot/`,
+      `https://appointmentbackend.onrender.com/officers/book-slot/`,
       {
         googleId: localStorage.getItem("googleId"),
         citizenName: JSON.parse(localStorage.getItem("user")).name,

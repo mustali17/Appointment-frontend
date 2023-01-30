@@ -70,7 +70,7 @@ const Search = () => {
 
   const fetchofficer = async () => {
     const { data } = await Axios.get(
-      `http://localhost:5000/officers/`
+      `https://appointmentbackend.onrender.com/officers/`
     );
     setofficer(data);
     console.log(data);

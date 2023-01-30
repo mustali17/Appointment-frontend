@@ -15,7 +15,7 @@ const CitizenAppointments = () => {
   const fetchAppointments = async () => {
 
     const { data } = await Axios.post(
-      `http://localhost:5000/citizens/previous-appointments/`,
+      `https://appointmentbackend.onrender.com/citizens/previous-appointments/`,
       {
         googleId: localStorage.getItem("googleId"),
       }

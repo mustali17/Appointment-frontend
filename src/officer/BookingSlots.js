@@ -16,7 +16,7 @@ const BookingSlots = (props) => {
   useEffect(() => {
     const fetchDate = async (dateToPost) => {
       const { data } = await Axios.post(
-        `http://localhost:5000/officers/get-slots/`,
+        `https://appointmentbackend.onrender.com/officers/get-slots/`,
         {
           officerId: officer._id,
           date: dateToPost

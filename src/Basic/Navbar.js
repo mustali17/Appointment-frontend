@@ -28,7 +28,7 @@ const Navbar = () => {
         window.localStorage.setItem("googleId", profile.getId());
 
         const serverRes = await axios.post(
-          `http://localhost:5000/citizens/google-login/`,
+          `https://appointmentbackend.onrender.com/citizens/google-login/`,
           {
             tokenId: profile.getAuthResponse().id_token,
           }
